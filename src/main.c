@@ -1,5 +1,8 @@
 #include <gint/display.h>
 #include <gint/keyboard.h>
+#include <openlibm.h>
+
+#define PI 3.14159265359
 
 void draw_circle(int x_centre, int y_centre, int rayon, int color) {
 	//bresenham
@@ -28,7 +31,28 @@ void draw_circle(int x_centre, int y_centre, int rayon, int color) {
 int main(void)
 {
 	dclear(C_BLACK);
-    draw_circle(100,100,15, C_WHITE);
+
+	int nbPoint = 10;
+	int rayon = 40;
+
+	int width = DWIDTH/2;
+	int height = DHEIGHT/2;
+
+	int facteur = 2;
+	draw_circle(width,height,rayon, C_WHITE);
+
+	for(int i = 0; i < nbPoint; i++) {
+		double angle = 2 * PI * i / nbPoint;
+		int x = rayon * cos(angle);
+		int y = rayon * sin(angle);
+		dpixel(x+width, y+height, C_RED);
+	}
+
+	for(int i = 0; i < nbPoint; i++) {
+		int link = (i*facteur)%nbPoint;
+		dprint(10, i*15, C_RED, "%d : %d", i, link);
+	}
+	
 	dupdate();
 	getkey();
 	return 1;
