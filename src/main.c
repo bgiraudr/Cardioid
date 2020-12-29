@@ -30,7 +30,7 @@ void draw_circle(int x_centre, int y_centre, int rayon, int color) {
 
 int main(void)
 {
-	int nbPoint = 100;
+	int nbPoint = 70;
 	int rayon = 90;
 
 	float facteur = 2;
@@ -42,6 +42,8 @@ int main(void)
 
 	char diapo = 0;
 	char mode = 0;
+    char show = 1;
+    char check = 0;
 	while(boucle) {
 		dclear(C_BLACK);
 		draw_circle(width,height,rayon, C_WHITE);
@@ -56,8 +58,8 @@ int main(void)
 			double anglelink = 2 * PI * link / nbPoint;
 			dline(rayon * cos(angle)+width, rayon * sin(angle)+height, rayon * cos(anglelink)+width, rayon * sin(anglelink)+height, C_WHITE);
 		}
-		if(!mode) dprint(1,1,C_WHITE,"Table : %.1j", (int)(facteur*10));
-		else dprint(1,1,C_WHITE,"nbPoint : %d",nbPoint);
+		if(!mode && show) dprint(1,1,C_WHITE,"Table : %.1j", (int)(facteur*10+1));
+		else if(show) dprint(1,1,C_WHITE,"NbPoint : %d",nbPoint);
 		dupdate();
 
 		clearevents();
@@ -76,6 +78,13 @@ int main(void)
 		if(keydown(KEY_EXIT)) {
 				boucle = 0;
 		}
+		if(keydown(KEY_OPTN) && !check) {
+            check = 1;
+			if(show) show = 0;
+            else show = 1;
+		}
+		else if(!keydown(KEY_OPTN)) check = 0;
+        
 		if(!diapo) {
 			if(keydown(KEY_RIGHT)) {
 				if(!mode) facteur+=0.1;

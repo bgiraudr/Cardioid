@@ -20,3 +20,4 @@ Avec F2 :
 Shift : Défilement automatique
 Alpha : Fin du défilement
 Exit : quitter
+OPTN : affiche / enlève les informations (augmente la vitesse)
