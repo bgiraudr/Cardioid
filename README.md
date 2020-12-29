@@ -1,6 +1,7 @@
 # Cardioide
 
 Représentation visuelle de cardioïde en fonction de la table souhaitée pour fx-cg50 / 90+E
+<h3 align="center"> <img src="pic1.jpg"> </h3>
 
 ## Utilisation :
 
@@ -17,7 +18,8 @@ Avec F2 :
 - touche de droite pour augmenter le nombre de point
 - gauche pour baisser
 
-Shift : Défilement automatique
-Alpha : Fin du défilement
-Exit : quitter
-OPTN : affiche / enlève les informations (augmente la vitesse)
+N'importe : 
+- Shift : Défilement automatique
+- Alpha : Fin du défilement
+- Exit : quitter
+- OPTN : affiche / enlève les informations (augmente la vitesse)
